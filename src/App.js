@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Counter from "./components/Counter";
 import ClassCounter from "./components/ClassCounter";
 import "./styles/App.css";
@@ -14,11 +14,19 @@ function App() {
     { id: 3, title: "Javascript 3", body: "Description 3" },
   ]);
 
-  const [title, setTitle] = useState("ewdew");
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
 
   const addNewPost = (e) => {
     e.preventDefault();
-    console.log(title);
+    const newPost = {
+      id: Date.now(),
+      title,
+      body,
+    };
+    setPosts([...posts, newPost]);
+    setTitle("");
+    setBody("");
   };
 
   return (
@@ -31,7 +39,13 @@ function App() {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <MyInput type="text" placeholder="Описание поста" />
+        {/* Неуправляемый/неконтроллируемый компонент */}
+        <MyInput
+          type="text"
+          placeholder="Описание поста"
+          value={body}
+          onChange={(e) => setBody(e.target.value)}
+        />
         <MyButton onClick={addNewPost}>Создать пост</MyButton>
       </form>
       <PostList posts={posts} title="Посты про JS"></PostList>
