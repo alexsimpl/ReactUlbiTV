@@ -1,5 +1,5 @@
 import React from 'react';
-import PostItem from "./components/PostItem";
+import PostItem from "./PostItem";
 
 const PostList = ({posts, title}) => {
   return ( 
