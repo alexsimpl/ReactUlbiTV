@@ -5,6 +5,7 @@ import "./styles/App.css";
 import PostItem from "./components/PostItem";
 import PostList from "./components/PostList";
 import PostForm from "./components/PostForm";
+import MyInput from "./components/"
 
 function App() {
   const [posts, setPosts] = useState([
