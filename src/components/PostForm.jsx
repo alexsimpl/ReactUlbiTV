@@ -3,7 +3,8 @@ import MyButton from "./UI/button/MyButton";
 import MyInput from "./UI/input/MyInput";
 
 const PostForm = ({create}) => {
-    const [post, setPost] = useState({title: '', body: ''});  
+  // console.log("Props in PostForm", {create});  
+  const [post, setPost] = useState({title: '', body: ''});  
 
     const addNewPost = (e) => {
         e.preventDefault();
