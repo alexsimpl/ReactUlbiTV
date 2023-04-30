@@ -6,34 +6,35 @@ const PostForm = ({create}) => {
     const [post, setPost] = useState({title: '', body: ''});  
 
     const addNewPost = (e) => {
-        // e.preventDefault();
+        e.preventDefault();
         const newPost = {
             ...post, id: Date.now()
 
         }
         create(newPost);
         setPost({title: '', body: ''});
+    }
     
     return (
+      <div>
         <form>
           {/* Управляемы компонент */}
-          <p>!!!</p>
           <MyInput
-            type="text"
-            placeholder="Название поста"
             value={post.title}
             onChange={(e) => setPost({...post, title:e.target.value})}
+            type="text"
+            placeholder="Название поста"
           />
           {/* Неуправляемый/неконтроллируемый компонент */}
           <MyInput
-            type="text"
-            placeholder="Описание поста"
             value={post.body}
             onChange={(e) => setPost({...post, body:e.target.value})}
+            type="text"
+            placeholder="Описание поста"
           />
           <MyButton onClick={addNewPost}>Создать пост</MyButton>
         </form>
+      </div>
       )
     }
-}    
 export default PostForm;
