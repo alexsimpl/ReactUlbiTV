@@ -9,6 +9,7 @@ import MyInput from "./components/UI/input/MyInput"
 import MyButton from "./components/UI/button/MyButton";
 import MySelect from "./components/UI/select/MySelect";
 import PostFilter from "./components/PostFilter";
+import MyModal from "./components/UI/MyModal/MyModal";
 
 function App() {
   const [posts, setPosts] = useState([
@@ -41,6 +42,7 @@ function App() {
 
   return (
     <div className="App">
+      <MyModal />
       <PostForm create={createPost}/>
       <hr style={{margin: '15px 0'}}></hr>
       <PostFilter filter={filter} setFilter={setFilter} />
